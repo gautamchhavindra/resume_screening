@@ -1,0 +1,38 @@
+resume_folder: "SampleResumes"
+
+embedding:
+  provider: local          # local | openai
+  local_model: BAAI/bge-small-en-v1.5   # fastembed (ONNX runtime, no torch) model name
+  openai_model: text-embedding-3-small
+
+llm:
+  # provider: deepseek | openai | anthropic | openai_compatible
+  # Each provider reads its API key from a different env var — see .env.example.
+  # base_url is only used by "deepseek" (defaults to api.deepseek.com if blank)
+  # and "openai_compatible" (required — point it at Groq/Together/local Ollama/etc).
+  provider: deepseek
+  model: deepseek-chat
+  base_url: https://api.deepseek.com
+  temperature: 0.2
+
+  # Examples for other providers (uncomment one block, comment out the deepseek one above):
+  # provider: openai
+  # model: gpt-4o-mini
+  #
+  # provider: anthropic
+  # model: claude-3-5-haiku-latest
+  #
+  # provider: openai_compatible
+  # model: llama-3.3-70b-versatile
+  # base_url: https://api.groq.com/openai/v1
+
+shortlist:
+  top_percent: 50          # top N% of resumes (by cosine similarity) sent to the LLM
+  min_candidates: 1         # always send at least this many, even for tiny batches
+
+api:
+  cors_origins:
+    - "*"
+
+logging:
+  level: INFO
