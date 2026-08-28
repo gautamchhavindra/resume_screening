@@ -1,8 +1,0 @@
-[project]
-name = "recruitment-workspace"
-version = "0.1.0"
-requires-python = ">=3.11"
-dependencies = []
-
-[tool.uv.workspace]
-members = ["resume-screening-agent"]
