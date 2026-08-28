@@ -39,6 +39,7 @@ public class ScreeningController {
         } catch (RestClientException ex) {
             model.addAttribute("errorMessage", "Could not reach the screening API: " + ex.getMessage());
         }
+        System.out.println("Test");     
         double elapsedSeconds = (System.currentTimeMillis() - startTime) / 1000.0;
         model.addAttribute("elapsedSeconds", String.format("%.1f", elapsedSeconds));
         return "results";
